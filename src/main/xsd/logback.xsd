@@ -15,6 +15,7 @@
 			<xsd:element name="appender" minOccurs="0" maxOccurs="unbounded" type="Appender"/>
 			<xsd:element name="logger" minOccurs="0" maxOccurs="unbounded" type="Logger"/>
 			<xsd:element name="root" minOccurs="0" maxOccurs="1" type="Root"/>
+			<xsd:element name="jmxConfigurator" minOccurs="0" maxOccurs="1" type="JmxConfigurator"/>
 			<xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:choice>
 		<xsd:attribute name="debug" type="xsd:boolean" use="optional"/>
@@ -146,7 +147,8 @@
 
 	<xsd:complexType name="Encoder">
 		<xsd:sequence>
-			<xsd:element name="pattern" type="xsd:string"/>
+			<xsd:element name="pattern" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+			<xsd:any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded" />
 		</xsd:sequence>
 		<xsd:attribute name="class" type="xsd:string" use="optional"/>
 	</xsd:complexType>
